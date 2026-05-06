@@ -1,6 +1,7 @@
 import axios from "axios";
 import { useEffect } from "react";
 import { useState } from "react";
+import Cards from "./components/card";
 
 const App = () =>{
     const [userData, setUserData] = useState([]);
@@ -18,10 +19,7 @@ const App = () =>{
     if(userData.length>0){
       printUserData = userData.map(function(elem, idx){
         return <div key={idx} className="images">
-          <a href={elem.url} target="_blank">
-          <img src={elem.download_url} alt="elem.author" />
-          <h5>{elem.author}</h5>
-          </a>
+          <Cards elem={elem}/>
         </div>
       });
     }
